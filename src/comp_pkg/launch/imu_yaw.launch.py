@@ -13,6 +13,39 @@ def generate_launch_description():
 
     ld = LaunchDescription()
 
+
+    # republish lidar data on /scan topic
+    laser_relay_node = TimerAction(
+        period=0.1,  # delay in seconds 
+        actions=[
+            Node(
+                package='comp_pkg',
+                executable='laser_relay',
+                name='laser_relay',
+                output='screen',
+            )
+        ]
+    )
+    ld.add_action(laser_relay_node)
+
+
+    # creating odom for rect obj by gazebo
+    gazebo_to_odom_node = TimerAction(
+        period=0.4,  # delay in seconds 
+        actions=[
+            Node(
+                package='comp_pkg',
+                executable='gazebo_to_odom',
+                name='gazebo_to_odom',
+                output='screen',
+            )
+        ]
+    )
+    ld.add_action(gazebo_to_odom_node)
+
+
+
+
     for i in range(2):
         for j in range(2):
             name='robot'+str(i)+'_'+str(j)
@@ -23,12 +56,6 @@ def generate_launch_description():
             output='screen',)
 
             ld.add_action(yaw_from_imu)
-
-    initialize_consensus_observer=Node(package='comp_pkg',
-            executable='state_consensus_node',
-            name='initialize_consensus_observer',
-            output='screen',)
-    #ld.add_action(initialize_consensus_observer)
 
     # Consensus Node (delayed by 5 seconds)
     consensus_node = TimerAction(
@@ -44,25 +71,21 @@ def generate_launch_description():
     )
     ld.add_action(consensus_node)
 
-    initialize_des_publisher=Node(package='comp_pkg',
-            executable='pub_des_vel_node',
-            name='initialize_des_publisher',
-            output='screen',)
-    #ld.add_action(initialize_des_publisher)    
 
     # Desired Velocity Publisher Node (delayed by 10 seconds total)
-    des_publisher_node = TimerAction(
-        period=5.0,  # delay in seconds (IMU + consensus time)
-        actions=[
-            Node(
-                package='comp_pkg',
-                executable='pub_des_vel_node',
-                name='initialize_des_publisher',
-                output='screen',
-            )
-        ]
-    )
-    ld.add_action(des_publisher_node)
+    #des_publisher_node = TimerAction(
+    #   period=5.0,  # delay in seconds (IMU + consensus time)
+    #    actions=[
+    #        Node(
+    #            package='comp_pkg',
+    #            executable='pub_des_vel_node',
+    #            name='initialize_des_publisher',
+    #            output='screen',
+    #        )
+    #    ]
+    #)
+    #ld.add_action(des_publisher_node)
+
 
     return ld
 

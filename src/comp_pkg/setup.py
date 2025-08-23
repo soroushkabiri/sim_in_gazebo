@@ -11,7 +11,8 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/imu_yaw.launch.py']),
-        ('share/' + package_name + '/launch', ['launch/combined.launch.py']),
+        #('share/' + package_name + '/launch', ['launch/combined.launch.py']),
+        ('share/' + package_name + '/launch', ['launch/velocity_publishing.launch.py']),
 
 
     ],
@@ -29,6 +30,12 @@ setup(
                     'test_node = comp_pkg.test_node:main',
                     'state_consensus_node = comp_pkg.state_consensus_node:main',
                     'pub_des_vel_node = comp_pkg.pub_des_vel_node:main',
+                    
+                    
+                    'imu_to_odom = comp_pkg.imu_to_odom:main',
+                    'gazebo_to_odom = comp_pkg.gazebo_to_odom:main',
+                    'laser_relay = comp_pkg.laser_relay:main',
+
 
 
 
