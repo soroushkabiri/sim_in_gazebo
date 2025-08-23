@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <plugin name="set_entity_state" filename="libgazebo_ros_set_entity_state.so"/>
+    <plugin name="gazebo_link_attacher" filename="libgazebo_link_attacher.so"/>
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so"/>
+
+
+  </world>
+</sdf>

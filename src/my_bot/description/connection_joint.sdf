@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="robot_connection_joint">
+    <joint name="connection_joint" type="fixed">
+      <parent>robot0_0::robot0_0_fixed_link</parent>
+      <child>robot1_0::robot1_0_fixed_link</child>
+      <pose>0 0 0 0 0 0</pose>
+
+    </joint>
+  </model>
+</sdf>
