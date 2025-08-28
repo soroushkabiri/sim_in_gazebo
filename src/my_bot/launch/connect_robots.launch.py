@@ -12,9 +12,9 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # Second service after 2 seconds
+        # Second service after 4 seconds
         TimerAction(
-            period=2.0,
+            period=4.0,
             actions=[
                 ExecuteProcess(
                     cmd=[
@@ -26,9 +26,9 @@ def generate_launch_description():
             ]
         ),
 
-        # Third service after 4 seconds
+        # Third service after 7 seconds
         TimerAction(
-            period=4.0,
+            period=7.0,
             actions=[
                 ExecuteProcess(
                     cmd=[
@@ -40,9 +40,9 @@ def generate_launch_description():
             ]
         ),
 
-        # Fourth service after 6 seconds
+        # Fourth service after 9 seconds
         TimerAction(
-            period=6.0,
+            period=9.0,
             actions=[
                 ExecuteProcess(
                     cmd=[

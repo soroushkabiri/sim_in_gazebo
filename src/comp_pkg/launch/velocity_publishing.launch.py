@@ -29,5 +29,22 @@ def generate_launch_description():
     ld.add_action(des_publisher_node)
 
 
+
+
+    # publish desired data for fuzzy planner
+    data_for_fuzzy = TimerAction(
+        period=2.0,  # delay in seconds 
+        actions=[
+            Node(
+                package='comp_pkg',
+                executable='data_necessary_for_fuzzy',
+                name='necessary_data_for_fuzzy',
+                output='screen',
+            )
+        ]
+    )
+    ld.add_action(data_for_fuzzy)
+
+
     return ld
 

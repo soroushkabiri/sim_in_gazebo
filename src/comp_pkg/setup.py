@@ -13,6 +13,7 @@ setup(
         ('share/' + package_name + '/launch', ['launch/imu_yaw.launch.py']),
         #('share/' + package_name + '/launch', ['launch/combined.launch.py']),
         ('share/' + package_name + '/launch', ['launch/velocity_publishing.launch.py']),
+        ('share/' + package_name + '/launch', ['launch/nodes_before_nav2_slamtoolbox.launch.py']),
 
 
     ],
@@ -36,6 +37,9 @@ setup(
                     'gazebo_to_odom = comp_pkg.gazebo_to_odom:main',
                     'laser_relay = comp_pkg.laser_relay:main',
 
+                    'data_necessary_for_fuzzy = comp_pkg.data_necessary_for_fuzzy:main',
+                    'repub_kinect = comp_pkg.repub_kinect:main',
+                    'make_timestamp_rgb_for_rtab_odom = comp_pkg.make_timestamp_rgb_for_rtab_odom:main',
 
 
 

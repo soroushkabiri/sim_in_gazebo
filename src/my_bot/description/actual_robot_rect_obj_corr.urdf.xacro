@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="actual_robot_rect_obj">
+    <xacro:arg name="prefix" default="" />
+
+    <xacro:include filename="actual_robot_rect_obj_core_corr.xacro"/>
+    <xacro:include filename="actual_lidar_corr_rect_obj.xacro"/>
+    <xacro:include filename="actual_camera_corr_rect_obj.xacro"/>
+    <xacro:include filename="actual_depth_camera_corr_rect_obj.xacro"/>
+
+    <!--xacro:include filename="actual_imu_corr_rect_obj.xacro"/-->
+
+
+
+
+
+    <xacro:rect_obj prefix=""/>
+    <xacro:lidar_module prefix=""/>
+    <xacro:camera_module prefix=""/>
+    <xacro:depth_camera_module prefix=""/>
+
+    <!--xacro:imu_module prefix=""/-->
+
+
+
+</robot>

@@ -14,38 +14,6 @@ def generate_launch_description():
     ld = LaunchDescription()
 
 
-    # republish lidar data on /scan topic
-    laser_relay_node = TimerAction(
-        period=0.1,  # delay in seconds 
-        actions=[
-            Node(
-                package='comp_pkg',
-                executable='laser_relay',
-                name='laser_relay',
-                output='screen',
-            )
-        ]
-    )
-    ld.add_action(laser_relay_node)
-
-
-    # creating odom for rect obj by gazebo
-    gazebo_to_odom_node = TimerAction(
-        period=0.4,  # delay in seconds 
-        actions=[
-            Node(
-                package='comp_pkg',
-                executable='gazebo_to_odom',
-                name='gazebo_to_odom',
-                output='screen',
-            )
-        ]
-    )
-    ld.add_action(gazebo_to_odom_node)
-
-
-
-
     for i in range(2):
         for j in range(2):
             name='robot'+str(i)+'_'+str(j)
