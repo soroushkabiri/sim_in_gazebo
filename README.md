@@ -4,8 +4,11 @@
 - **ROS 2 Humble** (Ubuntu 22.04)
 ---
 # Build the workspace
+
 colcon build
+
 source install/setup.bash
+
 # mapping the environment
 
 To map the environment, we use the slam_toolbox package. In this setup, the LiDAR sensor is mounted on top of the rectangular object being transported.
